@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>WTF Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles/style.css">
+
+</head>
+<body onload="poll()">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey.com">
+<div class="row">
+    <div class="col-md-12">
+        <!-- start:chat room -->
+        <div class="box">
+            <div class="chat-room">
+            <!-- start:aside kiri chat room -->
+            <aside class="kiri-side">
+                <div class="user-head">
+                    <i class="fa fa-comments-o"></i>
+                    <h3>WTF Foundation</h3>
+                </div>
+                <div class="invite-row">
+                    <h4 class="pull-left">People</h4>
+                </div>
+
+
+                <ul class="chat-available-user">
+
+                    {% for peer in peers %}
+
+                    <li>
+                        <i class="fa fa-circle text-success"></i>
+                        {{peer}}
+                    </li>
+
+                    <ul>
+                        {% for i in peers[peer] %}
+                        <li>{{i}}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endfor %}
+
+                </ul>
+                
+
+
+            </aside>
+            <!-- end:aside kiri chat room -->
+
+            <!-- start:aside tengah chat room -->
+            <aside class="tengah-side">
+                <div class="chat-room-head">
+
+                    <h3>{{ username }}</h3>
+                    <button class="btn btn-success pull-right position" data-original-title="" title="" id="join_chat">Join the chat</button>
+                    
+                </div>
+                <style type="text/css">
+                    #messages{
+                            height: 700px;
+                            overflow: scroll;
+                        }
+                </style>
+                    <div id="messages">
+                
+                        {% for each in messages %}
+
+                        <div class="group-rom">
+                            <div class="first-part">{{ each[1] }}<br>-----<br>{{ each[2] }}</div>
+                            <div class="second-part">{{ each[0] }}</div>
+                            <div class="third-part">{{ each[3] }}</div>
+        
+                        </div>
+                        {% endfor %}
+                    </div>
+
+
+                    <div>
+                        <form name="messagefield" id="messagefield">
+                            <div class="chat-txt">
+                                <input type="text" class="form-control" name="message" id="message">
+                            </div>
+                            <input class="btn btn-success" type="submit" value="Send">
+                            <input class="btn btn-danger" type="reset" value="Reset">
+
+                            <!-- <button class="btn btn-success" data-original-title="" title="">Send</button>
+                            <button class="btn btn-danger" data-original-title="" title="">Reset</button> -->
+                        </form>
+                    </div>
+                    
+                </footer>
+            </aside>
+            <!-- end:aside tengah chat room -->
+
+            </div>
+        </div>
+        <!-- end:chat room -->
+    </div>
+</div>
+</div>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="../static/js/script.js?v=2" data="{{ host }}" id="script">
+       
+
+
+	
+</script>
+</body>
+</html>
+http://localhost:8080/index/join_chat
